@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="/api/placeholder/32/32" alt="favicon"/>
+    <meta name="description" content="MBZUAI Machine Learning Winter School 2026">
+    <meta name="keywords" content="Representation Learning & GenAI ">
+    <title>Rethinking the Role of Bayesianism in the Age of Modern AI</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --link-color: #2980b9;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Banner */
+        .banner {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            height: 400px;
+            background-color: var(--primary-color);
+        }
+        
+        .banner img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+        
+        .banner-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            width: 90%;
+        }
+        
+        .title1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+        }
+        
+        .title2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .date-location {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+        
+        /* Navigation */
+        .navigation {
+            background-color: var(--dark-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+        
+        .nav-item {
+            padding: 1rem 1.5rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item:hover, .nav-item.current {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        /* Content Sections */
+        section {
+            padding: 3rem 0;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .highlight {
+            background-color: var(--light-color);
+            padding: 4rem 0;
+        }
+        
+        /* Topics list */
+        .topics {
+            list-style-type: none;
+            margin: 2rem 0;
+        }
+        
+        .topics li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        .topics li::before {
+            content: '•';
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.4rem;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Organizers */
+        .organizers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .organizer {
+            flex: 1 1 250px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .organizer strong {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--primary-color);
+        }
+        
+        .organizer span {
+            color: #555;
+            font-size: 0.95rem;
+        }
+        
+        /* Participants */
+        .participants {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .participant {
+            flex: 1 1 200px;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .participant:hover {
+            transform: translateY(-5px);
+        }
+        
+        .participant strong {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--primary-color);
+        }
+        
+        .participant span {
+            color: #555;
+            font-size: 0.95rem;
+        }
+        
+        /* Contact */
+        .contact {
+            background-color: var(--light-color);
+            padding: 4rem 0;
+        }
+        
+        .contact p {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-email {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        
+        .contact-email:hover {
+            background-color: var(--primary-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-credit {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 1rem;
+        }
+        
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            .banner {
+                height: 300px;
+            }
+            
+            .banner img {
+                height: 300px;
+            }
+            
+            .title1 {
+                font-size: 1.8rem;
+            }
+            
+            .title2 {
+                font-size: 2.2rem;
+            }
+            
+            .date-location {
+                font-size: 1rem;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            .nav-item {
+                padding: 0.8rem 1rem;
+                flex: 1 1 auto;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Banner -->
+    <div class="banner">
+        <img src="abu-dhabi-united-arab-emirates.jpg" alt="Abu Dhabi">
+        <div class="banner-text">
+            <h1 class="title1">Rethinking the Role of</h1>
+            <h1 class="title2">Bayesianism in the Age of Modern AI</h1>
+            <p class="date-location">October 27-31, 2025 | MBZUAI, Abu Dhabi, UAE</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navigation">
+        <div class="container nav-container">
+            <a href="#about" class="nav-item current">About</a>
+            <a href="#topics" class="nav-item">Topics</a>
+            <a href="#organizers" class="nav-item">Organizers</a>
+            <a href="#participants" class="nav-item">Participants</a>
+            <a href="#program" class="nav-item">Program</a>
+            <a href="#contact" class="nav-item">Contact</a>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About the Workshop</h2>
+            <p>
+                Following the success of the Dagstuhl Seminar in 2024, this focused workshop on "Rethinking the Role of Bayesianism in the Age of Modern AI" will take place from October 27 to 31, 2025. The gathering will bring together researchers exploring the frontiers of Bayesian Machine Learning and Deep Learning in a collaborative atmosphere.
+            </p>
+            <p>
+                Despite the recent success of large-scale deep learning, these systems still fall short in terms of their reliability and trustworthiness. They often lack the ability to estimate their own uncertainty in a calibrated way, encode meaningful prior knowledge, avoid catastrophic failures, and reason about their environments to avoid such failures.
+            </p>
+            <p>
+                Bayesian deep learning (BDL) has harbored the promise of achieving these desiderata by combining the statistical foundations of Bayesian inference with the practically successful engineering solutions of deep learning methods. However, compared to its promise, BDL methods often do not live up to expectations in terms of real-world impact.
+            </p>
+            <p>
+                This workshop aims to rethink and redefine the promises and challenges of Bayesian approaches; elucidate which Bayesian methods might prevail against their non-Bayesian competitors; and identify key application areas where Bayes can shine. The event is planned as a small, discussion-driven gathering with a relaxed and collaborative atmosphere, and is designed to encourage deep exchange, new ideas, and informal collaboration across intersecting areas of research.
+            </p>
+        </div>
+    </section>
+
+    <!-- Topics Section -->
+    <section id="topics" class="highlight">
+        <div class="container">
+            <h2>Workshop Topics</h2>
+            <p>The workshop will cover a broad range of topics at the intersection of Bayesian methods and modern AI, including:</p>
+            
+            <ul class="topics">
+                <li>Bayesian deep learning fundamentals and challenges</li>
+                <li>Uncertainty quantification in complex and black-box models</li>
+                <li>Scalable approximations for Bayesian inference</li>
+                <li>Foundation models and Bayesian methods</li>
+                <li>Bayesian versus non-Bayesian alternatives (bootstrap, conformal prediction, etc.)</li>
+                <li>Prior design for deep neural networks</li>
+                <li>Applications and practical considerations</li>
+                <li>Model selection and evaluation in Bayesian frameworks</li>
+                <li>Robustness and adaptation under distribution shift</li>
+                <li>Future directions for Bayesian AI research</li>
+            </ul>
+            
+            <p>Graduate students and early career researchers are especially encouraged to participate. This is a unique opportunity to engage with leaders in the field and discover future research directions.</p>
+        </div>
+    </section>
+
+    <!-- Organizers Section -->
+    <section id="organizers">
+        <div class="container">
+            <h2>Organizing Committee</h2>
+            <div class="organizers">
+                <div class="organizer">
+                    <strong>Vincent Fortuin</strong>
+                    <span>Helmholtz AI, Germany</span>
+                </div>
+                <div class="organizer">
+                    <strong>Nikita Kotelevskii</strong>
+                    <span>MBZUAI, UAE</span>
+                </div>
+                <div class="organizer">
+                    <strong>Salem Lahlou</strong>
+                    <span>MBZUAI, UAE</span>
+                </div>
+                <div class="organizer">
+                    <strong>Eric Moulines</strong>
+                    <span>École Polytechnique, France</span>
+                </div>
+                <div class="organizer">
+                    <strong>Konstantina Palla</strong>
+                    <span>Spotify, UK</span>
+                </div>
+                <div class="organizer">
+                    <strong>Maxim Panov</strong>
+                    <span>MBZUAI, UAE</span>
+                </div>
+                <div class="organizer">
+                    <strong>Theodore Papamarkou</strong>
+                    <span>Zhejiang Normal University, China</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Participants Section -->
+    <section id="participants" class="highlight">
+        <div class="container">
+            <h2>Confirmed Participants</h2>
+            <p>The workshop brings together a mix of researchers from diverse career stages and backgrounds to foster meaningful dialogue and spark new collaborations.</p>
+            
+            <div class="participants">
+                <div class="participant">
+                    <strong>Pierre Alquier</strong>
+                    <span>ESSEC Singapore</span>
+                </div>
+                <div class="participant">
+                    <strong>François-Xavier Briol</strong>
+                    <span>University College London</span>
+                </div>
+                <div class="participant">
+                    <strong>Wray Buntine</strong>
+                    <span>Vin University</span>
+                </div>
+                <div class="participant">
+                    <strong>Andrew Davison</strong>
+                    <span>Imperial College London</span>
+                </div>
+                <div class="participant">
+                    <strong>Gintare Karolina Dziugaite</strong>
+                    <span>Google Brain</span>
+                </div>
+                <div class="participant">
+                    <strong>Carl Henrik Ek</strong>
+                    <span>University of Cambridge</span>
+                </div>
+                <div class="participant">
+                    <strong>Liu Fang</strong>
+                    <span>University of Notre Dame</span>
+                </div>
+                <div class="participant">
+                    <strong>Maurizio Filipone</strong>
+                    <span>KAUST</span>
+                </div>
+                <div class="participant">
+                    <strong>Andrew Foong</strong>
+                    <span>Mayo Clinic</span>
+                </div>
+                <div class="participant">
+                    <strong>Vincent Fortuin</strong>
+                    <span>Helmholtz AI</span>
+                </div>
+                <div class="participant">
+                    <strong>Jes Frellsen</strong>
+                    <span>DTU</span>
+                </div>
+                <div class="participant">
+                    <strong>Theofanis Karaletsos</strong>
+                    <span>Insitro</span>
+                </div>
+                <div class="participant">
+                    <strong>Emti Khan</strong>
+                    <span>RIKEN</span>
+                </div>
+                <div class="participant">
+                    <strong>Jeremias Knoblauch</strong>
+                    <span>University College London</span>
+                </div>
+                <div class="participant">
+                    <strong>Nikita Kotelevskii</strong>
+                    <span>MBZUAI</span>
+                </div>
+                <div class="participant">
+                    <strong>Salem Lahlou</strong>
+                    <span>MBZUAI</span>
+                </div>
+                <div class="participant">
+                    <strong>Yingzhen Li</strong>
+                    <span>Imperial College London</span>
+                </div>
+                <div class="participant">
+                    <strong>Sanae Lotfi</strong>
+                    <span>New York University</span>
+                </div>
+                <div class="participant">
+                    <strong>Clare Lyle</strong>
+                    <span>Deepmind</span>
+                </div>
+                <div class="participant">
+                    <strong>Nikolay Malkin</strong>
+                    <span>University of Edinburgh</span>
+                </div>
+                <div class="participant">
+                    <strong>Thomas Moellenhof</strong>
+                    <span>RIKEN</span>
+                </div>
+                <div class="participant">
+                    <strong>Eric Moulines</strong>
+                    <span>Ecole Polytechnique</span>
+                </div>
+                <div class="participant">
+                    <strong>Christian A. Naesseth</strong>
+                    <span>UvA</span>
+                </div>
+                <div class="participant">
+                    <strong>Konstantina Palla</strong>
+                    <span>Spotify</span>
+                </div>
+                <div class="participant">
+                    <strong>Maxim Panov</strong>
+                    <span>MBZUAI</span>
+                </div>
+                <div class="participant">
+                    <strong>Theodore Papamarkou</strong>
+                    <span>Zhejiang Normal University</span>
+                </div>
+                <div class="participant">
+                    <strong>Daniel Roy</strong>
+                    <span>Vector Institute</span>
+                </div>
+                <div class="participant">
+                    <strong>Tim Rudner</strong>
+                    <span>New York University</span>
+                </div>
+                <div class="participant">
+                    <strong>Maja Rudolph</strong>
+                    <span>Bosch AI</span>
+                </div>
+                <div class="participant">
+                    <strong>Siddharth Swaroop</strong>
+                    <span>Harvard University</span>
+                </div>
+                <div class="participant">
+                    <strong>Dmitry Vetrov</strong>
+                    <span>Constructor University</span>
+                </div>
+                <div class="participant">
+                    <strong>Sara Wade</strong>
+                    <span>University of Edinburgh</span>
+                </div>
+                <div class="participant">
+                    <strong>Willem Waegeman</strong>
+                    <span>Ghent University</span>
+                </div>
+                <div class="participant">
+                    <strong>Andrew Wilson</strong>
+                    <span>New York University</span>
+                </div>
+            </div>
+            
+            <p style="margin-top: 2rem; text-align: center;">More participants to be announced soon.</p>
+        </div>
+    </section>
+
+    <!-- Program Section -->
+    <section id="program">
+        <div class="container">
+            <h2>Workshop Program</h2>
+            <p>
+                The workshop features a highly interactive program, focusing on active participation and discussion among participants. The schedule will include:
+            </p>
+            <ul class="topics">
+                <li>Keynote presentations from leading researchers</li>
+                <li>Roundtable discussions on critical challenges in Bayesian AI</li>
+                <li>Interactive breakout sessions</li>
+                <li>Poster sessions and lightning talks</li>
+                <li>Collaborative problem-solving sessions</li>
+                <li>Social activities, including a trip to the desert and other local attractions</li>
+            </ul>
+            <p>
+                A detailed program will be available closer to the workshop date.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Information</h2>
+            <p>
+                For questions about the workshop, please contact:
+            </p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 1rem;">
+                <a href="mailto:theo@zjnu.edu.cn" class="contact-email">Theodore Papamarkou</a>
+                <a href="mailto:Maxim.Panov@mbzuai.ac.ae" class="contact-email">Maxim Panov</a>
+                <a href="mailto:Salem.Lahlou@mbzuai.ac.ae" class="contact-email">Salem Lahlou</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Rethinking the Role of Bayesianism in the Age of Modern AI Workshop</p>
+            <p class="footer-credit">Hosted by Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)</p>
+        </div>
+    </footer>
+
+    <!-- Simple JavaScript for smooth scroll -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 60,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active navigation
+                    document.querySelectorAll('.nav-item').forEach(item => {
+                        item.classList.remove('current');
+                    });
+                    this.classList.add('current');
+                }
+            });
+        });
+        
+        // Update active navigation based on scroll position
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    current = '#' + section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('current');
+                if (item.getAttribute('href') === current) {
+                    item.classList.add('current');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
