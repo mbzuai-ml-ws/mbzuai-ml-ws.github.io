@@ -276,6 +276,12 @@
             margin-top: 1rem;
         }
         
+        /* Shimmer animation for closed applications */
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
         /* Responsive adjustments */
         @media screen and (max-width: 768px) {
             .banner {
@@ -330,7 +336,7 @@
             <a href="#organizers" class="nav-item">Organizers</a>
             <a href="#participants" class="nav-item">Speakers</a>
             <a href="#program" class="nav-item">Program</a>
-            <a href="#apply" class="nav-item" style="background-color: #e74c3c; color: white;">🎯 Apply Now</a>
+            <a href="#apply" class="nav-item" style="background-color: #95a5a6; color: white;">📝 Applications Closed</a>
             <a href="#contact" class="nav-item">Contact</a>
         </div>
     </nav>
@@ -374,14 +380,19 @@
 <!-- Apply Now Section -->
 <section id="apply" class="highlight" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
     <div class="container">
-        <h2 style="color: white; text-align: center;">🎯 Apply Now! 🚀</h2>
+        <h2 style="color: white; text-align: center;">📝 Application Status 📝</h2>
         <div style="text-align: center; margin-bottom: 2rem;">
             <p style="font-size: 1.3rem; margin-bottom: 1rem;">
-                <strong>Ready to join the future of AI? Apply for the MBZUAI ML Winter School 2026!</strong>
+                <strong>Thank you for your interest in the MBZUAI ML Winter School 2026!</strong>
             </p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSda22nQaupRAsyFt3ts8eP-BEf19r3kfZAUx0fnruEhnwnXfg/viewform" target="_blank" style="display: inline-block; background-color: #e74c3c; color: white; padding: 1rem 2.5rem; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 1.2rem; margin: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: all 0.3s ease;">
-                📝 Apply Now 📝
-            </a>
+            <div style="display: inline-block; background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%); color: white; padding: 1.5rem 3rem; border-radius: 15px; font-weight: bold; font-size: 1.3rem; margin: 1rem; box-shadow: 0 6px 20px rgba(0,0,0,0.3); border: 3px solid rgba(255,255,255,0.2); text-align: center; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent); animation: shimmer 3s infinite;"></div>
+                <div style="position: relative; z-index: 1;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔒</div>
+                    <div style="font-size: 1.4rem; margin-bottom: 0.3rem;">Applications Have Closed</div>
+                    <div style="font-size: 1rem; opacity: 0.9; font-weight: 400;">You'll hear from us in November</div>
+                </div>
+            </div>
         </div>
         
         <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 10px; margin-top: 2rem;">
