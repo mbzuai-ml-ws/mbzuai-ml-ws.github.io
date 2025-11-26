@@ -282,6 +282,51 @@
             100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
 
+        /* Program Table */
+        .program-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .program-table th, .program-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .program-table th {
+            background-color: var(--secondary-color);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .program-table tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .program-day-header td {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .program-break td {
+            background-color: #f8f9fa;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        .program-social td {
+            background-color: #e8f6f3;
+            color: #16a085;
+            font-weight: 600;
+        }
+
         /* Responsive adjustments */
         @media screen and (max-width: 768px) {
             .banner {
@@ -336,7 +381,6 @@
             <a href="#organizers" class="nav-item">Organizers</a>
             <a href="#participants" class="nav-item">Speakers</a>
             <a href="#program" class="nav-item">Program</a>
-            <a href="#apply" class="nav-item" style="background-color: #95a5a6; color: white;">📝 Applications Closed</a>
             <a href="#contact" class="nav-item">Contact</a>
         </div>
     </nav>
@@ -507,16 +551,202 @@
         <div class="container">
             <h2>School Program</h2>
             <p>
-                The winter school features a comprehensive 5-day program combining theoretical foundations with practical applications. The schedule includes:
+                The winter school features a comprehensive 5-day program combining theoretical foundations with practical applications.
             </p>
-            <ul class="topics">
-                <li>Technical lectures covering cutting-edge developments in modern machine learning</li>
-                <li>Hands-on practical sessions</li>
-                <li>Networking opportunities with industry practitioners and academic researchers</li>
-            </ul>
-            <p>
-                Participants will gain direct access to the latest research methodologies and have opportunities to engage with pioneers who are shaping the future of AI. A detailed program will be available closer to the winter school date.
-            </p>
+            
+            <table class="program-table">
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">Time</th>
+                        <th style="width: 25%;">Speaker</th>
+                        <th style="width: 55%;">Title</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Monday -->
+                    <tr class="program-day-header">
+                        <td colspan="3">Monday, February 9</td>
+                    </tr>
+                    <tr>
+                        <td>09:00 - 09:30</td>
+                        <td>-</td>
+                        <td><strong>Welcome / Intro</strong></td>
+                    </tr>
+                    <tr>
+                        <td>09:30 - 11:00</td>
+                        <td>TBD</td>
+                        <td>TBD</td>
+                    </tr>
+                    <tr class="program-break">
+                        <td>11:00 - 11:30</td>
+                        <td colspan="2" style="text-align: center;">Break</td>
+                    </tr>
+                    <tr>
+                        <td>11:30 - 13:00</td>
+                        <td><strong>Alex Korotin</strong></td>
+                        <td>Flow Matching and Rectified Flows</td>
+                    </tr>
+                    <tr class="program-break">
+                        <td>13:00 - 14:00</td>
+                        <td colspan="2" style="text-align: center;">Lunch Break</td>
+                    </tr>
+                    <tr>
+                        <td>14:00 - 15:30</td>
+                        <td>TBD</td>
+                        <td>TBD</td>
+                    </tr>
+                    <tr class="program-break">
+                        <td>15:30 - 16:00</td>
+                        <td colspan="2" style="text-align: center;">Break</td>
+                    </tr>
+                    <tr>
+                        <td>16:00 - 17:30</td>
+                        <td>TBD</td>
+                        <td>TBD</td>
+                    </tr>
+                    <tr class="program-social">
+                        <td>17:30 - 18:30+</td>
+                        <td colspan="2" style="text-align: center;">Social Event</td>
+                    </tr>
+
+                    <!-- Tuesday -->
+                    <tr class="program-day-header">
+                        <td colspan="3">Tuesday, February 10</td>
+                    </tr>
+                    <tr>
+                        <td>09:00 - 10:30</td>
+                        <td><strong>Alex Korotin</strong></td>
+                        <td>Diffusion Bridge Generative Models for Domain Translation Problems</td>
+                    </tr>
+                    <tr class="program-break">
+                        <td>10:30 - 11:00</td>
+                        <td colspan="2" style="text-align: center;">Break</td>
+                    </tr>
+                    <tr>
+                        <td>11:00 - 12:30</td>
+                        <td><strong>Florence Forbes</strong></td>
+                        <td>Scalable Bayesian Experimental Design with Diffusions</td>
+                    </tr>
+                    <tr class="program-break">
+                        <td>12:30 - 14:00</td>
+                        <td colspan="2" style="text-align: center;">Lunch Break</td>
+                    </tr>
+                    <tr>
+                        <td>14:00 - 15:30</td>
+                        <td>TBD</td>
+                        <td>TBD</td>
+                    </tr>
+                    <tr class="program-break">
+                        <td>15:30 - 16:00</td>
+                        <td colspan="2" style="text-align: center;">Break</td>
+                    </tr>
+                    <tr>
+                        <td>16:00 - 17:30</td>
+                        <td>TBD</td>
+                        <td>TBD</td>
+                    </tr>
+
+                    <!-- Wednesday -->
+                    <tr class="program-day-header">
+                        <td colspan="3">Wednesday, February 11</td>
+                    </tr>
+                    <tr>
+                        <td>09:00 - 10:30</td>
+                        <td><strong>Yingzhen Li</strong></td>
+                        <td>Approximate Probabilistic Inference - Modern Advances in GenAI Era</td>
+                    </tr>
+                    <tr class="program-break">
+                        <td>10:30 - 11:00</td>
+                        <td colspan="2" style="text-align: center;">Break</td>
+                    </tr>
+                    <tr>
+                        <td>11:00 - 12:30</td>
+                        <td><strong>Yingzhen Li</strong></td>
+                        <td>Uncertainty Quantification in Deep Learning - A Bayesian Approach</td>
+                    </tr>
+                    <tr class="program-break">
+                        <td>12:30 - 14:00</td>
+                        <td colspan="2" style="text-align: center;">Lunch Break</td>
+                    </tr>
+                    <tr>
+                        <td>14:00 - 15:30</td>
+                        <td>TBD</td>
+                        <td>TBD</td>
+                    </tr>
+                    <tr class="program-break">
+                        <td>15:30 - 16:00</td>
+                        <td colspan="2" style="text-align: center;">Break</td>
+                    </tr>
+                    <tr class="program-social">
+                        <td>16:00 - 18:30+</td>
+                        <td colspan="2" style="text-align: center;">Social Event</td>
+                    </tr>
+
+                    <!-- Thursday -->
+                    <tr class="program-day-header">
+                        <td colspan="3">Thursday, February 12</td>
+                    </tr>
+                    <tr>
+                        <td>09:00 - 10:30</td>
+                        <td><strong>Yuandong Tian</strong></td>
+                        <td>Neural and Symbolic Representation and its application 1</td>
+                    </tr>
+                    <tr class="program-break">
+                        <td>10:30 - 11:00</td>
+                        <td colspan="2" style="text-align: center;">Break</td>
+                    </tr>
+                    <tr>
+                        <td>11:00 - 12:30</td>
+                        <td><strong>Yuandong Tian</strong></td>
+                        <td>Neural and Symbolic Representation and its application 2</td>
+                    </tr>
+                    <tr class="program-break">
+                        <td>12:30 - 14:00</td>
+                        <td colspan="2" style="text-align: center;">Lunch Break</td>
+                    </tr>
+                    <tr>
+                        <td>14:00 - 15:30</td>
+                        <td><strong>Arthur Gretton</strong></td>
+                        <td>Causal Effect Estimation 1</td>
+                    </tr>
+                    <tr class="program-break">
+                        <td>15:30 - 16:00</td>
+                        <td colspan="2" style="text-align: center;">Break</td>
+                    </tr>
+                    <tr>
+                        <td>16:00 - 17:30</td>
+                        <td><strong>Arthur Gretton</strong></td>
+                        <td>Causal Effect Estimation 2</td>
+                    </tr>
+                    <tr class="program-social">
+                        <td>17:30 - 18:30+</td>
+                        <td colspan="2" style="text-align: center;">Social Event</td>
+                    </tr>
+
+                    <!-- Friday -->
+                    <tr class="program-day-header">
+                        <td colspan="3">Friday, February 13</td>
+                    </tr>
+                    <tr>
+                        <td>09:00 - 11:00</td>
+                        <td><strong>Michael Bronstein</strong></td>
+                        <td>Geometric DL and equivariance, graph neural networks, and learning in weight-spaces</td>
+                    </tr>
+                    <tr class="program-break">
+                        <td>11:00 - 11:30</td>
+                        <td colspan="2" style="text-align: center;">Break</td>
+                    </tr>
+                    <tr>
+                        <td>11:30 - 13:00</td>
+                        <td><strong>Ahmed Elhag</strong></td>
+                        <td>Tutorial on Graph Neural Networks and Geometric Graphs</td>
+                    </tr>
+                    <tr class="program-social">
+                        <td>13:00 - 18:30+</td>
+                        <td colspan="2" style="text-align: center;">Lunch and Checkout</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
 
